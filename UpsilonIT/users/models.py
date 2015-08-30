@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
-from django.utils.timezone import now as datetime_now
 from django.utils.translation import ugettext_lazy as _
 from core.utils import upload_to_users
 from users.managers import UserManager
@@ -18,7 +17,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(_('last name'), max_length=255, blank=True)
     is_staff = models.BooleanField(_('staff status'), default=False)
     is_active = models.BooleanField(_('active'), default=True)
-    created_at = models.DateTimeField(_('created at'), auto_now_add=True)
+    created_at = models.DateField(_('created at'), auto_now_add=True)
     phone = models.CharField(_('phone'), max_length=15)
     avatar = models.ImageField(upload_to=upload_to_users, verbose_name=_('Avatar'), blank=True)
     gender = models.IntegerField(choices=GENDER, verbose_name=_('Gender'),

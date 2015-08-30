@@ -8,7 +8,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class BlogSerializer(serializers.ModelSerializer):
-    posts = PostSerializer(many=True)
+    posts = PostSerializer(many=True, read_only=True)
     amount = serializers.IntegerField(read_only=True)
 
     class Meta:

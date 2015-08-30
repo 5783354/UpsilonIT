@@ -33,7 +33,7 @@ class BlogViewSet(viewsets.ModelViewSet):
 
 
 class PostFilter(django_filters.FilterSet):
-    start = django_filters.DateRangeFilter(name='created_at', lookup_type='gte')
+    start = django_filters.DateFilter(name='created_at', lookup_type='gte')
     end = django_filters.DateFilter(name='created_at', lookup_type='lte')
     name = django_filters.CharFilter(name='user__first_name')
 
